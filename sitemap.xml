@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://umrahhaj.com/</loc>
     <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://umrahhaj.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://umrahhaj.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://umrahhaj.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://umrahhaj.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://umrahhaj.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://umrahhaj.com/"/>
+  </url>
+  <url>
+    <loc>https://umrahhaj.com/fr/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://umrahhaj.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://umrahhaj.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://umrahhaj.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://umrahhaj.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://umrahhaj.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://umrahhaj.com/"/>
+  </url>
+  <url>
+    <loc>https://umrahhaj.com/de/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://umrahhaj.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://umrahhaj.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://umrahhaj.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://umrahhaj.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://umrahhaj.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://umrahhaj.com/"/>
+  </url>
+  <url>
+    <loc>https://umrahhaj.com/es/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://umrahhaj.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://umrahhaj.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://umrahhaj.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://umrahhaj.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://umrahhaj.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://umrahhaj.com/"/>
+  </url>
+  <url>
+    <loc>https://umrahhaj.com/ar/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://umrahhaj.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://umrahhaj.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://umrahhaj.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://umrahhaj.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://umrahhaj.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://umrahhaj.com/"/>
   </url>
 </urlset>

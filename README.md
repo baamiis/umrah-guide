@@ -2,29 +2,43 @@
 
 An illustrated, step-by-step guide to performing Umrah, live at **https://umrahhaj.com**.
 
-The six rites are ihram preparation, the miqat and intention, tawaf, prayer and Zamzam, sa'i, and cutting the hair. Each has animated diagrams and the Arabic du'as with translations.
+It is available in five languages:
 
-## Features
+| Language | URL |
+|---|---|
+| English (default) | https://umrahhaj.com/ |
+| Français | https://umrahhaj.com/fr/ |
+| Deutsch | https://umrahhaj.com/de/ |
+| Español | https://umrahhaj.com/es/ |
+| العربية | https://umrahhaj.com/ar/ (right-to-left) |
 
-- A single static page (`index.html`) with no build step and no dependencies
-- Animated SVG diagrams for the miqat, tawaf and sa'i
-- Deep links to each step (`/#tawaf`, `/#sai`, ...), arrow-key navigation, and Back-button support
-- Light and dark themes, a mobile layout, a print stylesheet, and a no-JavaScript fallback
+## How it is built
+
+Each language is a plain static page generated from one template:
+
+```
+src/template.html    the page: HTML, CSS and JS, with {{keys}} where text goes
+i18n/en.json         English text (the reference; every language has exactly the same keys)
+i18n/fr.json, de.json, es.json, ar.json
+build.mjs            writes index.html, fr/, de/, es/, ar/ and sitemap.xml
+```
+
+**Do not edit `index.html` or the language folders directly.** They are overwritten by the build.
+
+To change text or layout:
+
+1. Edit `src/template.html` or the files in `i18n/`.
+2. Run `node build.mjs`. It stops with an error if a language is missing a key, a placeholder like `{n}` doesn't match, or a `{{key}}` is left unreplaced.
+3. Commit everything, including the generated pages, and push to `main`. Vercel deploys automatically.
+
+The Arabic du'as and Qur'an verses live in the template, so they are identical in every language.
 
 ## Run locally
 
-Open `index.html` in a browser, or serve the folder:
+The pages use root paths (`/favicon.svg`), so serve the folder rather than opening the file:
 
 ```sh
-npx serve .
-```
-
-## Deploy
-
-Hosted on Vercel. To deploy from this folder:
-
-```sh
-vercel deploy --prod
+python -m http.server 8000    # then open http://localhost:8000/
 ```
 
 ## Support
