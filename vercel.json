@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path(.*)",
+      "has": [{ "type": "host", "value": "www.umrahhaj.com" }],
+      "destination": "https://umrahhaj.com/:path",
+      "permanent": true
+    }
+  ]
+}
