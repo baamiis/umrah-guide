@@ -1,41 +1,43 @@
-# Umrah, Step by Step
+# Umrah & Hajj, Step by Step
 
-An illustrated, step-by-step guide to performing Umrah, live at **https://umrahhaj.com**.
+Illustrated, step-by-step guides to performing Umrah and Hajj, live at **https://umrahhaj.com**.
 
-It is available in five languages:
+| Page | English (default) | Other languages |
+|---|---|---|
+| Home: choose a guide | `/` | `/fr/` `/de/` `/es/` `/ar/` |
+| Umrah guide (6 steps) | `/umrah/` | `/fr/umrah/` … `/ar/umrah/` |
+| Hajj guide (8 steps) | `/hajj/` | `/fr/hajj/` … `/ar/hajj/` |
 
-| Language | URL |
-|---|---|
-| English (default) | https://umrahhaj.com/ |
-| Français | https://umrahhaj.com/fr/ |
-| Deutsch | https://umrahhaj.com/de/ |
-| Español | https://umrahhaj.com/es/ |
-| العربية | https://umrahhaj.com/ar/ (right-to-left) |
+Arabic pages are right-to-left. Each step has its own link, for example `/hajj/#arafah` or `/fr/umrah/#tawaf`.
 
 ## How it is built
 
-Each language is a plain static page generated from one template:
+Every page is plain static HTML, generated from templates:
 
 ```
-src/template.html    the page: HTML, CSS and JS, with {{keys}} where text goes
-i18n/en.json         English text (the reference; every language has exactly the same keys)
-i18n/fr.json, de.json, es.json, ar.json
-build.mjs            writes index.html, fr/, de/, es/, ar/ and sitemap.xml
+src/home.html, src/umrah.html, src/hajj.html   one template per page, with {{keys}} where text goes
+src/partials/                                  pieces shared by all pages: head, CSS, top bar,
+                                               support section, footer, core.js, guide.js (step navigation)
+i18n/common/<lang>.json                        text shared by all pages (site name, menu, donations, buttons)
+i18n/home|umrah|hajj/<lang>.json               text for each page
+build.mjs                                      writes all 15 pages and sitemap.xml
 ```
 
-**Do not edit `index.html` or the language folders directly.** They are overwritten by the build.
+**Do not edit the generated `index.html` files** (at `/`, in `umrah/`, `hajj/` and the language folders). They are overwritten by the build.
 
 To change text or layout:
 
-1. Edit `src/template.html` or the files in `i18n/`.
+1. Edit a template in `src/` or a text file in `i18n/`. English is the reference: every language must have exactly the same keys.
 2. Run `node build.mjs`. It stops with an error if a language is missing a key, a placeholder like `{n}` doesn't match, or a `{{key}}` is left unreplaced.
 3. Commit everything, including the generated pages, and push to `main`. Vercel deploys automatically.
 
-The Arabic du'as and Qur'an verses live in the template, so they are identical in every language.
+The Arabic du'as and Qur'an verses live in the templates, so they are identical in every language.
+
+The Google Search Console verification tag is added to the English home page by `build.mjs`. Keep it.
 
 ## Run locally
 
-The pages use root paths (`/favicon.svg`), so serve the folder rather than opening the file:
+The pages use root paths (`/favicon.svg`), so serve the folder rather than opening the files:
 
 ```sh
 python -m http.server 8000    # then open http://localhost:8000/
@@ -43,5 +45,5 @@ python -m http.server 8000    # then open http://localhost:8000/
 
 ## Support
 
-The guide is free with no ads. To support it, use the donation links on the site.
+The guides are free with no ads. To support them, use the donation links on the site.
 Questions or corrections: info@baamiis.co.uk

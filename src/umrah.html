@@ -1,0 +1,404 @@
+{{>head.html}}
+</head>
+<body>
+{{>topbar-guide.html}}
+
+<header class="hero" id="top">
+  <div>
+    <p class="ar hero-ar" lang="ar">عُمْرَة</p>
+    <h1>{{heroTitle}}</h1>
+    <p class="lede">{{heroLede}}</p>
+    <div class="hero-actions">
+      <a class="btn" href="#journey">{{heroCta}}</a>
+    </div>
+  </div>
+  <svg viewBox="0 0 400 400" role="img" aria-label="{{heroSvg}}">
+    <circle class="orbit" cx="200" cy="200" r="95"/>
+    <circle class="orbit" cx="200" cy="200" r="125"/>
+    <circle class="orbit" cx="200" cy="200" r="155"/>
+    <g class="crowd">
+      <g class="ring" style="animation-duration:38s" id="ring1"></g>
+      <g class="ring" style="animation-duration:52s" id="ring2"></g>
+      <g class="ring" style="animation-duration:70s" id="ring3"></g>
+    </g>
+    <path class="hijr" d="M190,160 A22,22 0 0 0 160,190"/>
+    <polygon class="kaaba" points="200,150 250,200 200,250 150,200"/>
+    <polygon class="kiswa-band" points="200,162 238,200 200,238 162,200"/>
+    <circle class="maqam" cx="246" cy="154" r="5"/>
+  </svg>
+</header>
+
+<main class="journey" id="journey" tabindex="-1" style="outline:none">
+  <nav class="rail" aria-label="{{railAria}}">
+    <ol id="railList"></ol>
+    <p class="now-label" id="nowLabel" aria-hidden="true"></p>
+    <div class="bar"><span id="bar"></span></div>
+  </nav>
+
+  <p class="motion-note" id="motionNote" hidden>
+    <span id="motionText">{{js.preferLess}}</span>
+    <button type="button" id="motionBtn">{{js.pauseAnim}}</button>
+  </p>
+
+  <!-- 1 PREPARE -->
+  <section class="step" id="prepare" data-title="{{s1.title}}" aria-labelledby="h1s">
+    <div class="scene">
+      <svg viewBox="0 0 400 300" role="img" aria-label="{{s1.svg}}">
+        <g><path class="drop" d="M170,20 q6,10 0,14 q-6,-4 0,-14z"/><path class="drop" d="M200,12 q6,10 0,14 q-6,-4 0,-14z"/><path class="drop" d="M230,22 q6,10 0,14 q-6,-4 0,-14z"/></g>
+        <g class="ghusl-tag"><text class="lbl strong" x="270" y="40">{{s1.ghusl}}</text></g>
+        <circle class="fig" cx="200" cy="82" r="22"/>
+        <rect class="fig" x="160" y="108" width="80" height="160" rx="36"/>
+        <rect class="izar" x="152" y="178" width="96" height="92" rx="10"/>
+        <rect class="rida" x="148" y="104" width="104" height="80" rx="22"/>
+        <g class="tag"><line x1="252" y1="140" x2="300" y2="128"/><text class="lbl strong" x="304" y="132">{{s1.rida}}</text><text class="lbl" x="304" y="148">{{s1.upper}}</text></g>
+        <g class="tag"><line x1="148" y1="226" x2="100" y2="214"/><text class="lbl strong" x="40" y="218">{{s1.izar}}</text><text class="lbl" x="40" y="234">{{s1.lower}}</text></g>
+      </svg>
+      <p class="caption">{{s1.caption}}</p>
+    </div>
+    <div class="text">
+      <h2 id="h1s">{{s1.title}}</h2>
+      <p class="where">{{s1.where}}</p>
+      <ul>
+        <li>{{s1.li1}}</li>
+        <li>{{s1.li2}}</li>
+        <li>{{s1.li3}}</li>
+        <li>{{s1.li4}}</li>
+        <li>{{s1.li5}}</li>
+      </ul>
+      <p class="note">{{s1.note}}</p>
+    </div>
+  </section>
+
+  <!-- 2 MIQAT -->
+  <section class="step" id="miqat" data-title="{{s2.title}}" aria-labelledby="h2s">
+    <div class="scene">
+      <svg viewBox="0 0 400 380" role="img" aria-label="{{s2.svg}}">
+        <polygon id="miqatLine" points="190,40 290,140 320,230 240,340 90,120" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="6 6"/>
+        <g id="miqatPts"></g>
+        <polygon class="kaaba" points="200,214 214,228 200,242 186,228"/>
+        <text class="lbl strong" x="200" y="264" text-anchor="middle">{{makkah}}</text>
+        <g id="plane"><path d="M14,0 L-8,-4 L-12,-14 L-16,-14 L-14,-3 L-22,-2 L-25,-7 L-28,-7 L-27,0 L-28,7 L-25,7 L-22,2 L-14,3 L-16,14 L-12,14 L-8,4 Z" fill="var(--mosque)"/></g>
+        <circle id="cross" cx="117" cy="98" r="6" fill="none" stroke="var(--gold)" stroke-width="2" opacity="0"/>
+        <text class="lbl" x="390" y="372" text-anchor="end">{{notToScale}}</text>
+      </svg>
+      <p class="caption" id="miqatCap" aria-live="off"></p>
+    </div>
+    <div class="text">
+      <h2 id="h2s">{{s2.title}}</h2>
+      <p class="where">{{s2.where}}</p>
+      <p>{{s2.p}}</p>
+      <div class="dua">
+        <p class="ar" lang="ar">لَبَّيْكَ اللَّهُمَّ عُمْرَةً</p>
+        <p class="tr">{{s2.tr1}}</p>
+      </div>
+      <div class="dua">
+        <p class="ar" lang="ar">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ</p>
+        <p class="tr">{{s2.tr2}}</p>
+      </div>
+      <p><strong>{{s2.forbiddenH}}</strong>{{s2.forbidden}}</p>
+    </div>
+  </section>
+
+  <!-- 3 TAWAF -->
+  <section class="step" id="tawaf" data-title="{{s3.title}}" aria-labelledby="h3s">
+    <div class="scene">
+      <svg viewBox="0 0 400 400" role="img" aria-label="{{s3.svg}}">
+        <circle class="orbit" cx="200" cy="200" r="120"/>
+        <line x1="250" y1="200" x2="345" y2="200" stroke="var(--gold)" stroke-width="2" stroke-dasharray="4 4"/>
+        <text class="lbl" x="345" y="192" text-anchor="end">{{s3.startFinish}}</text>
+        <path id="trail" fill="none" stroke="var(--mosque)" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+        <path class="hijr" d="M190,160 A22,22 0 0 0 160,190"/>
+        <text class="lbl" x="122" y="148" text-anchor="end">{{hijr}}</text>
+        <polygon class="kaaba" points="200,150 250,200 200,250 150,200"/>
+        <polygon class="kiswa-band" points="200,162 238,200 200,238 162,200"/>
+        <circle cx="250" cy="200" r="5" fill="#333" stroke="var(--gold)" stroke-width="2"/>
+        <text class="lbl strong" x="258" y="218">{{blackStone}}</text>
+        <circle cx="200" cy="250" r="4" fill="var(--gold)"/>
+        <text class="lbl" x="208" y="268">{{yemeni}}</text>
+        <circle class="maqam" cx="246" cy="154" r="5"/>
+        <text class="lbl" x="256" y="146">{{maqam}}</text>
+        <g id="pilgrim"><circle r="12" fill="var(--mosque)" opacity=".2"/><circle r="7" fill="var(--mosque)"/></g>
+      </svg>
+      <p class="caption" id="tawafCap"></p>
+      <div class="controls">
+        <button class="primary" id="tawafPlay">{{js.play}}</button>
+        <button id="tawafReset">{{restart}}</button>
+        <button class="speed" type="button">{{js.speed1}}</button>
+        <span class="pips" id="tawafPips" role="img" aria-label=""></span>
+      </div>
+    </div>
+    <div class="text">
+      <h2 id="h3s">{{s3.title}}</h2>
+      <p class="where">{{s3.where}}</p>
+      <ul>
+        <li>{{s3.li1}}</li>
+        <li>{{s3.li2}}</li>
+        <li>{{s3.li3}}</li>
+        <li>{{s3.li4}}</li>
+        <li>{{s3.li5}}</li>
+        <li>{{s3.li6}}</li>
+      </ul>
+      <div class="dua">
+        <p class="ar" lang="ar">بِسْمِ اللَّهِ وَاللَّهُ أَكْبَرُ</p>
+        <p class="tr">{{s3.tr1}}</p>
+      </div>
+      <div class="dua">
+        <p class="ar" lang="ar">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p>
+        <p class="tr">{{s3.tr2}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 PRAYER & ZAMZAM -->
+  <section class="step" id="prayer" data-title="{{s4.title}}" aria-labelledby="h4s">
+    <div class="scene">
+      <svg viewBox="0 0 520 400" role="img" aria-label="{{s4.svg}}">
+        <circle class="orbit" cx="200" cy="200" r="120"/>
+        <path class="hijr" d="M190,160 A22,22 0 0 0 160,190"/>
+        <polygon class="kaaba" points="200,150 250,200 200,250 150,200"/>
+        <polygon class="kiswa-band" points="200,162 238,200 200,238 162,200"/>
+        <circle class="maqam" cx="246" cy="154" r="6"/>
+        <text class="lbl strong" x="232" y="140" text-anchor="end">{{maqam}}</text>
+        <rect class="mat" x="262" y="106" width="22" height="36" rx="3" fill="none" stroke="var(--gold)" stroke-width="2" transform="rotate(45 273 124)"/>
+        <g class="walker"><g transform="translate(310 195)"><circle r="7" fill="var(--mosque)"/></g></g>
+        <text class="lbl" x="300" y="98">{{s4.twoRakahs}}</text>
+        <path class="cup" d="M410,250 L420,340 L470,340 L480,250 Z"/>
+        <clipPath id="cupClip"><path d="M410,250 L420,340 L470,340 L480,250 Z"/></clipPath>
+        <g clip-path="url(#cupClip)"><rect class="water-fill" x="400" y="262" width="90" height="80"/></g>
+        <text class="lbl strong" x="445" y="368" text-anchor="middle">{{zamzam}}</text>
+      </svg>
+      <p class="caption">{{s4.caption}}</p>
+    </div>
+    <div class="text">
+      <h2 id="h4s">{{s4.title}}</h2>
+      <p class="where">{{s4.where}}</p>
+      <ul>
+        <li>{{s4.li1}}</li>
+        <li>{{s4.li2}}</li>
+        <li>{{s4.li3}}</li>
+        <li>{{s4.li4}}</li>
+      </ul>
+      <div class="dua">
+        <p class="ar" lang="ar">وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى</p>
+        <p class="tr">{{s4.tr1}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 SA'I -->
+  <section class="step" id="sai" data-title="{{s5.title}}" aria-labelledby="h5s">
+    <div class="scene">
+      <svg viewBox="0 0 600 240" role="img" aria-label="{{s5.svg}}">
+        <path d="M20,170 Q60,90 110,170 Z" fill="var(--figure)"/>
+        <path d="M490,170 Q540,90 580,170 Z" fill="var(--figure)"/>
+        <text class="lbl strong" x="65" y="195" text-anchor="middle">{{safa}}</text>
+        <text class="lbl strong" x="535" y="195" text-anchor="middle">{{marwah}}</text>
+        <line x1="90" y1="150" x2="510" y2="150" stroke="var(--line)" stroke-width="22" stroke-linecap="round"/>
+        <rect x="215" y="136" width="100" height="28" fill="var(--green-light)" opacity=".18"/>
+        <rect x="213" y="100" width="6" height="30" rx="2" fill="var(--green-light)"/>
+        <rect x="311" y="100" width="6" height="30" rx="2" fill="var(--green-light)"/>
+        <text class="lbl" x="265" y="92" text-anchor="middle">{{s5.green}}</text>
+        <text class="lbl" x="300" y="225" text-anchor="middle">{{s5.distance}}</text>
+        <g id="saiDot"><circle r="12" fill="var(--mosque)" opacity=".2"/><circle r="7" fill="var(--mosque)"/></g>
+      </svg>
+      <p class="caption" id="saiCap"></p>
+      <div class="controls">
+        <button class="primary" id="saiPlay">{{js.play}}</button>
+        <button id="saiReset">{{restart}}</button>
+        <button class="speed" type="button">{{js.speed1}}</button>
+        <span class="pips" id="saiPips" role="img" aria-label=""></span>
+      </div>
+    </div>
+    <div class="text">
+      <h2 id="h5s">{{s5.title}}</h2>
+      <p class="where">{{s5.where}}</p>
+      <ul>
+        <li>{{s5.li1}}</li>
+        <li>{{s5.li2}}</li>
+        <li>{{s5.li3}}</li>
+        <li>{{s5.li4}}</li>
+        <li>{{s5.li5}}</li>
+      </ul>
+      <div class="dua">
+        <p class="ar" lang="ar">إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ</p>
+        <p class="tr">{{s5.tr1}}</p>
+      </div>
+      <div class="dua">
+        <p class="ar" lang="ar">اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ</p>
+        <p class="tr">{{s5.tr2}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 HAIR -->
+  <section class="step" id="hair" data-title="{{s6.title}}" aria-labelledby="h6s">
+    <div class="scene">
+      <svg viewBox="0 0 400 300" role="img" aria-label="{{s6.svg}}">
+        <path class="hair" d="M200,20 C225,60 180,100 205,140"/>
+        <path class="hair snip" d="M205,140 C214,160 204,176 210,190"/>
+        <g class="blade-a"><line class="scissor-edge" x1="250" y1="150" x2="180" y2="150"/><circle class="scissor" cx="290" cy="128" r="16"/><line class="scissor" x1="250" y1="150" x2="278" y2="138"/></g>
+        <g class="blade-b"><line class="scissor-edge" x1="250" y1="150" x2="180" y2="150"/><circle class="scissor" cx="290" cy="172" r="16"/><line class="scissor" x1="250" y1="150" x2="278" y2="162"/></g>
+        <circle cx="250" cy="150" r="4" fill="var(--gold)"/>
+        <text class="lbl" x="200" y="250" text-anchor="middle">{{s6.length}}</text>
+      </svg>
+      <p class="caption">{{s6.caption}}</p>
+    </div>
+    <div class="text">
+      <h2 id="h6s">{{s6.title}}</h2>
+      <p class="where">{{s6.where}}</p>
+      <ul>
+        <li>{{s6.li1}}</li>
+        <li>{{s6.li2}}</li>
+      </ul>
+      <p>{{s6.p}}</p>
+    </div>
+  </section>
+
+  <div class="complete" id="complete">
+    <p class="ar" lang="ar">تَقَبَّلَ اللَّهُ مِنَّا وَمِنكُم</p>
+    <h2 id="completeHeading" tabindex="-1">{{doneTitle}}</h2>
+    <p class="note">{{doneNote}}</p>
+    <p class="support-cta"><a class="btn ghost" href="#support">{{doneSupport}}</a></p>
+  </div>
+
+  <div class="pager">
+    <button class="btn ghost" id="prev" type="button">{{prev}}</button>
+    <button class="btn" id="next" type="button">{{js.next}}</button>
+  </div>
+</main>
+
+{{>support.html}}
+
+{{>footer.html}}
+
+<script>
+{{>core.js}}
+{{>guide.js}}
+
+/* Hero crowd */
+[[95,10],[125,14],[155,18]].forEach(([r,n],i) => {
+  const g = $('#ring'+(i+1));
+  for (let k=0;k<n;k++){ const a = (k/n)*Math.PI*2 + i; el('circle',{cx:200+r*Math.cos(a),cy:200+r*Math.sin(a),r:3.2},g); }
+});
+
+/* Miqat points */
+const miqats = [[190,40,T.mDhul,'middle',-10],[290,140,T.mDhat,'start',14],[320,230,T.mQarn,'end',-12],[240,340,T.mYalamlam,'start',14],[90,120,T.mJuhfah,'end',-12]];
+miqats.forEach(([x,y,n,anc,dx]) => {
+  el('circle',{cx:x,cy:y,r:6,fill:'var(--gold)'},$('#miqatPts'));
+  const t = el('text',{x:x+(anc==='middle'?0:dx),y:anc==='middle'?y-12:y+4,class:'lbl strong','text-anchor':anc},$('#miqatPts')); t.textContent = n;
+});
+
+/* Pips helper */
+function makePips(id){ const p = $(id); for (let i=0;i<7;i++) p.appendChild(document.createElement('i')); return [...p.children]; }
+function setPips(pips, done, active){
+  pips.forEach((p,i) => { p.className = i<done ? 'on' : (i===done && active ? 'now' : ''); });
+  const box = pips[0].parentNode;
+  box.setAttribute('aria-label', fmt(box.id === 'saiPips' ? T.lapsDone : T.circuitsDone, {n: done}));
+}
+function setCap(node, html){ if (node._h !== html){ node.innerHTML = html; node._h = html; } }
+
+/* Scene: miqat (auto loop) */
+const miqat = (() => {
+  const start=[60,30], end=[195,222], cross=0.38, plane=$('#plane'), ring=$('#cross'), cap=$('#miqatCap');
+  const ang = Math.atan2(end[1]-start[1], end[0]-start[0])*180/Math.PI;
+  ring.setAttribute('cx', start[0]+(end[0]-start[0])*cross); ring.setAttribute('cy', start[1]+(end[1]-start[1])*cross);
+  let t = 0;
+  function render(){
+    const u = Math.min(t/14, 1);
+    const x = start[0]+(end[0]-start[0])*u, y = start[1]+(end[1]-start[1])*u;
+    plane.setAttribute('transform', `translate(${x} ${y}) rotate(${ang})`);
+    plane.style.opacity = u >= 1 ? 0 : 1;
+    const near = Math.abs(u-cross) < 0.07;
+    ring.setAttribute('opacity', near ? 1 : 0);
+    ring.setAttribute('r', near ? 6 + (1-Math.abs(u-cross)/0.07)*10 : 6);
+    if (u < cross-0.1) setCap(cap, T.mApproach);
+    else if (u < cross+0.35) setCap(cap,'<span class="ar" lang="ar">لَبَّيْكَ اللَّهُمَّ عُمْرَةً</span>' + T.mCrossing);
+    else setCap(cap, T.mInIhram);
+  }
+  return { enter(){ t = reduce ? 8 : 0; render(); }, tick(dt){ if (reduce) return; t += dt*speed; if (t > 21) t = 0; render(); } };
+})();
+
+/* Scene: tawaf */
+const tawaf = (() => {
+  const C=200, R=120, dot=$('#pilgrim'), trail=$('#trail'), cap=$('#tawafCap'), btn=$('#tawafPlay'), pips=makePips('#tawafPips');
+  const HOLD=5, W2=8;                       // pause at Black Stone; Yemeni corner to Black Stone
+  const W1 = c => c < 3 ? 9 : 12;           // Black Stone to Yemeni corner (ramal is a little quicker)
+  const D = c => HOLD + W1(c) + W2;
+  let circ = 0, pt = 0, playing = false;
+  const pos = th => [C+R*Math.cos(th), C+R*Math.sin(th)];
+  function phase(){
+    if (circ >= 7) return {f:0, ph:'end'};
+    if (pt < HOLD) return {f:0, ph:'stone'};
+    if (pt < HOLD + W1(circ)) return {f:0.75*(pt-HOLD)/W1(circ), ph:'walk'};
+    return {f:0.75 + 0.25*(pt-HOLD-W1(circ))/W2, ph:'yemeni'};
+  }
+  function render(){
+    const {f, ph} = phase(), th = -2*Math.PI*f;
+    const [x,y] = pos(th); dot.setAttribute('transform',`translate(${x} ${y})`);
+    if (f > 0.002){
+      const [sx,sy] = pos(0), large = f > 0.5 ? 1 : 0;
+      trail.setAttribute('d',`M${sx},${sy} A${R},${R} 0 ${large} 0 ${x},${y}`);
+    } else trail.setAttribute('d','');
+    setPips(pips, Math.min(circ,7), circ<7 && (playing || circ>0 || pt>0));
+    let msg;
+    const n = {n: circ+1};
+    if (ph === 'end') msg = T.tEnd;
+    else if (ph === 'stone') msg = '<span class="ar" lang="ar">بِسْمِ اللَّهِ وَاللَّهُ أَكْبَرُ</span>' + fmt(T.tStone, n);
+    else if (ph === 'yemeni') msg = '<span class="ar" lang="ar">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</span>' + fmt(T.tYemeni, n);
+    else msg = fmt(circ < 3 ? T.tRamal : T.tNormal, n);
+    setCap(cap, msg);
+  }
+  function setPlaying(v){ playing = v; btn.textContent = v ? T.pause : (circ>=7 ? T.replay : T.play); }
+  const reset = () => { circ = 0; pt = 0; };
+  btn.onclick = () => { if (circ >= 7) reset(); setPlaying(!playing); render(); };
+  $('#tawafReset').onclick = () => { reset(); setPlaying(!reduce); render(); };
+  return {
+    enter(){ if (circ >= 7) reset(); setPlaying(!reduce); render(); },
+    tick(dt){
+      if (!playing) return;
+      pt += dt*speed;
+      while (circ < 7 && pt >= D(circ)){ pt -= D(circ); circ++; }
+      if (circ >= 7){ pt = 0; setPlaying(false); }
+      render();
+    }
+  };
+})();
+
+/* Scene: sa'i */
+const sai = (() => {
+  const SAFA=95, MARWAH=505, Y=150, PAUSE=6, WALK=10, LAP=PAUSE+WALK;
+  const dot=$('#saiDot'), cap=$('#saiCap'), btn=$('#saiPlay'), pips=makePips('#saiPips');
+  let t = 0, playing = false;
+  const ease = u => u<.5 ? 2*u*u : 1-Math.pow(-2*u+2,2)/2;
+  function render(){
+    const total = 7*LAP, done = t >= total;
+    const lap = done ? 6 : Math.floor(t/LAP), lt = done ? LAP : t - lap*LAP;
+    const forward = lap % 2 === 0, from = forward ? SAFA : MARWAH, to = forward ? MARWAH : SAFA;
+    const u = lt < PAUSE ? 0 : ease(Math.min((lt-PAUSE)/WALK,1));
+    const x = from + (to-from)*u;
+    dot.setAttribute('transform',`translate(${x} ${Y})`);
+    const inGreen = x > 215 && x < 315;
+    dot.lastElementChild.setAttribute('fill', inGreen ? 'var(--green-light)' : 'var(--mosque)');
+    setPips(pips, done ? 7 : lap, !done && (playing || t>0));
+    let msg;
+    if (done) msg = T.sDone;
+    else if (lt < PAUSE) msg = lap===0
+      ? '<span class="ar" lang="ar">إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ</span>' + T.sFirst
+      : (forward ? T.sOnSafa : T.sOnMarwah);
+    else msg = fmt(forward ? T.sLapToMarwah : T.sLapToSafa, {n: lap+1});
+    setCap(cap, msg);
+  }
+  function setPlaying(v){ playing = v; btn.textContent = v ? T.pause : (t >= 7*LAP ? T.replay : T.play); }
+  btn.onclick = () => { if (t >= 7*LAP) t = 0; setPlaying(!playing); render(); };
+  $('#saiReset').onclick = () => { t = 0; setPlaying(!reduce); render(); };
+  return {
+    enter(){ if (t >= 7*LAP) t = 0; setPlaying(!reduce); render(); },
+    tick(dt){ if (!playing) return; t += dt*speed; if (t >= 7*LAP){ t = 7*LAP; setPlaying(false); } render(); }
+  };
+})();
+
+
+startGuide([null, miqat, tawaf, null, sai, null]);
+</script>
+</body>
+</html>

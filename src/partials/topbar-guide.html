@@ -1,0 +1,14 @@
+<a class="skip" href="#journey">{{skip}}</a>
+
+<div class="topbar">
+  <a class="brand" href="{{@base}}" aria-label="{{brandLabel}}">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><polygon points="16,3 29,16 16,29 3,16" fill="#000" stroke="var(--gold)" stroke-width="1.5"/><polygon points="16,7 25,16 16,25 7,16" fill="none" stroke="var(--gold)" stroke-width="2"/></svg>
+    <span>{{brand}}</span>
+  </a>
+  <nav class="topnav" aria-label="{{navAria}}">
+    <a href="#journey" class="hide-sm">{{navSteps}}</a>
+    <a href="#print" class="hide-sm" id="printLink">{{navPrint}}</a>
+    <a href="#support" class="support-link" aria-label="{{navSupport}}">&#9829;<span class="sl-text"> {{navSupport}}</span></a>
+    {{@langMenu}}
+  </nav>
+</div>

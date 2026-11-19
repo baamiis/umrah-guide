@@ -1,14 +1,26 @@
 {
-  "name": "Umrah, Step by Step",
-  "short_name": "Umrah Guide",
-  "description": "An illustrated, step-by-step guide to performing Umrah.",
+  "name": "Umrah & Hajj, Step by Step",
+  "short_name": "Umrah & Hajj",
+  "description": "Illustrated, step-by-step guides to performing Umrah and Hajj.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#F4F6F5",
   "theme_color": "#0F5C4D",
   "icons": [
-    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
   ]
 }
